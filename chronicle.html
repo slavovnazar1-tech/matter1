@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Matter Chronicle — Est. 1963</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Georgia','Times New Roman',serif;
+  background:#e8ddd0;color:#1a1510;
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(180,155,130,.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(160,140,120,.06) 0%, transparent 50%);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+
+.container{max-width:1000px;margin:0 auto;padding:0 32px}
+
+.alert-bar{background:#2c2018;color:#e8ddd0;text-align:center;padding:6px 16px;font-family:'Inter',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:2px}
+.alert-bar span{color:#c9a84c}
+
+.masthead{
+  text-align:center;padding:36px 0 20px;
+  border-bottom:3px double #8b7355;position:relative;margin-bottom:0;
+  background:linear-gradient(180deg,#f5ede2,#e8ddd0);
+}
+.masthead::after{content:'\2605';position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:#e8ddd0;padding:0 12px;color:#8b7355;font-size:12px}
+.masthead .vol{font-family:'Inter',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;color:#8b7355}
+.masthead h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,64px);font-weight:400;letter-spacing:4px;color:#1a1510;margin:4px 0}
+.masthead .date{font-size:12px;color:#8b7355;letter-spacing:1px;font-style:italic}
+.masthead .tagline{font-family:'Inter',sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:4px;color:#8b7355;margin-top:4px}
+
+.nav-bar{display:flex;justify-content:center;gap:0;border-bottom:1px solid #d4c0b0;padding:8px 0;margin-bottom:24px;flex-wrap:wrap}
+.nav-bar a{font-family:'Inter',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#6a5a4a;padding:4px 20px;border-right:1px solid #d4c0b0;transition:.3s}
+.nav-bar a:last-child{border-right:none}
+.nav-bar a:hover{color:#1a1510}
+
+.headline-spread{display:grid;grid-template-columns:3fr 2fr;gap:32px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #d4c0b0}
+.headline-main .img{height:340px;background:#d4c0b0;overflow:hidden;margin-bottom:12px;border:1px solid #c8b4a0}
+.headline-main .img img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.4) contrast(1.05)}
+.headline-main .rubric{font-family:'Inter',sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#8b7355}
+.headline-main h2{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:400;line-height:1.15;margin:6px 0 8px}
+.headline-main .byline{font-size:11px;color:#8b7355;font-style:italic;margin-bottom:8px}
+.headline-main p{font-size:13px;color:#3a3028;line-height:1.8}
+.headline-side{display:flex;flex-direction:column;gap:16px}
+.headline-side .item{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 0;border-bottom:1px solid #e0d0c0}
+.headline-side .item:first-child{padding-top:0}
+.headline-side .item .thumb{height:80px;background:#d4c0b0;overflow:hidden}
+.headline-side .item .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.3)}
+.headline-side .item h3{font-size:13px;font-weight:400;line-height:1.3;margin-bottom:4px}
+.headline-side .item .meta{font-size:10px;color:#8b7355;font-style:italic;font-family:'Inter',sans-serif}
+
+.section{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #d4c0b0}
+.section:last-of-type{border-bottom:3px double #8b7355}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.section-header .rule{flex:1;height:1px;background:#d4c0b0}
+.section-header h3{font-family:'Inter',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:3px;font-weight:400;color:#8b7355;white-space:nowrap}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.two-col .article .img{height:150px;background:#d4c0b0;overflow:hidden;margin-bottom:10px;border:1px solid #d4c0b0}
+.two-col .article .img img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.3)}
+.two-col .article .cat{font-family:'Inter',sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#8b7355}
+.two-col .article h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;margin:4px 0 6px;line-height:1.25}
+.two-col .article p{font-size:12px;color:#4a3a2a;line-height:1.7}
+
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.three-col .card .img{height:120px;background:#d4c0b0;overflow:hidden;border:1px solid #d4c0b0}
+.three-col .card .img img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.25)}
+.three-col .card .cat{font-family:'Inter',sans-serif;font-size:8px;text-transform:uppercase;letter-spacing:2px;color:#8b7355;margin-top:8px}
+.three-col .card h4{font-family:'Playfair Display',serif;font-size:14px;font-weight:400;margin:3px 0 4px;line-height:1.2}
+.three-col .card p{font-size:11px;color:#4a3a2a;line-height:1.6}
+
+.quote-block{text-align:center;padding:28px 40px;margin:24px 0;border-top:1px solid #d4c0b0;border-bottom:1px solid #d4c0b0}
+.quote-block .text{font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,20px);font-style:italic;line-height:1.4;color:#3a3028}
+.quote-block .attr{font-family:'Inter',sans-serif;font-size:10px;color:#8b7355;margin-top:8px;letter-spacing:1px}
+
+.catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.catalog-item{background:#f5ede2;border:1px solid #d4c0b0;padding:16px;text-align:center;transition:.3s}
+.catalog-item:hover{background:#ede0d0}
+.catalog-item .thumb{height:100px;background:#d4c0b0;overflow:hidden;margin-bottom:8px}
+.catalog-item .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.2)}
+.catalog-item h4{font-size:13px;font-weight:400}
+.catalog-item .price{font-size:14px;color:#8b7355;margin-top:4px}
+
+.bottom-bar{display:flex;justify-content:space-between;padding:20px 0;font-family:'Inter',sans-serif;font-size:10px;color:#8b7355;text-transform:uppercase;letter-spacing:1px;border-top:1px solid #d4c0b0;margin-top:8px}
+
+footer{text-align:center;padding:32px 20px;font-family:'Inter',sans-serif;font-size:10px;color:#8b7355;letter-spacing:2px;margin-top:12px}
+footer .orn{font-size:16px;letter-spacing:6px;margin-bottom:8px}
+
+.stamp{display:inline-block;background:#1a1510;color:#e8ddd0;font-family:'Inter',sans-serif;font-size:8px;padding:2px 6px;letter-spacing:1px;text-transform:uppercase;margin-left:4px}
+
+@media(max-width:768px){
+  .headline-spread{grid-template-columns:1fr;gap:20px}
+  .headline-main .img{height:240px}
+  .two-col{grid-template-columns:1fr;gap:20px}
+  .three-col,.catalog-grid{grid-template-columns:1fr;gap:16px}
+  .headline-side .item{grid-template-columns:1fr}
+  .container{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="alert-bar">&#9650; MATTER SPRING SALE — 20% OFF ALL LIGHTING · USE CODE <span>CHRONICLE20</span></div>
+
+<div class="masthead">
+  <div class="vol">Volume LXI · No. 127</div>
+  <h1>The Matter Chronicle</h1>
+  <div class="date">Wednesday, 8 April 2026 · Price One Shilling</div>
+  <div class="tagline">A Weekly Journal of Design, Craft & the Domestic Arts</div>
+</div>
+
+<div class="container">
+
+<div class="nav-bar">
+  <a href="#catalog">Catalog</a>
+  <a href="#workshop">Workshop</a>
+  <a href="#design">Design</a>
+  <a href="#market">Market Report</a>
+  <a href="#archive">Archive</a>
+</div>
+
+<div class="headline-spread">
+  <div class="headline-main">
+    <div class="img"><img src="https://picsum.photos/seed/chronicle-feat/800/500" alt="" loading="lazy"></div>
+    <div class="rubric">Exclusive Report</div>
+    <h2>The Handmade Object<br>Stages a Quiet Return</h2>
+    <div class="byline">By Eleanor Ashworth · Filed from the Cotswolds</div>
+    <p>Across England, a new generation of makers is turning away from mass production in favor of the slow, imperfect, deeply satisfying work of the hand. In workshops hidden among the hills of the Cotswolds, craftsmen are producing furniture that their great-grandchildren might one day inherit. Our correspondent visited three such workshops and found a movement that cares more about joinery than profit margins.</p>
+  </div>
+  <div class="headline-side">
+    <div class="item"><div class="thumb"><img src="https://picsum.photos/seed/chronicle-side1/300/200" alt="" loading="lazy"></div><div><h3>Why Solid Wood is Making a Comeback</h3><div class="meta">Materials · 4 min read</div></div></div>
+    <div class="item"><div class="thumb"><img src="https://picsum.photos/seed/chronicle-side2/300/200" alt="" loading="lazy"></div><div><h3>The Last Brass Foundry in Sheffield</h3><div class="meta">Industry · 5 min read</div></div></div>
+    <div class="item"><div class="thumb"><img src="https://picsum.photos/seed/chronicle-side3/300/200" alt="" loading="lazy"></div><div><h3>Wool, Linen, and the Art of Slowing Down</h3><div class="meta">Textiles · 3 min read</div></div></div>
+  </div>
+</div>
+
+<div class="section" id="catalog">
+  <div class="section-header"><span class="rule"></span><h3>Spring Catalog · New Arrivals</h3><span class="rule"></span></div>
+  <p style="font-size:11px;color:#8b7355;margin-bottom:12px;font-style:italic">All pieces made to order in our workshop. Delivery within 4–6 weeks. Inquire at the counter for swatches.</p>
+  <div class="catalog-grid">
+    <div class="catalog-item"><div class="thumb"><img src="https://picsum.photos/seed/chron-chair/300/300" alt="" loading="lazy"></div><h4>Oak Side Chair</h4><div class="price">&pound;340 <span class="stamp">New</span></div></div>
+    <div class="catalog-item"><div class="thumb"><img src="https://picsum.photos/seed/chron-lamp/300/300" alt="" loading="lazy"></div><h4>Brass Arc Lamp</h4><div class="price">&pound;550 <span class="stamp">New</span></div></div>
+    <div class="catalog-item"><div class="thumb"><img src="https://picsum.photos/seed/chron-vase/300/300" alt="" loading="lazy"></div><h4>Stoneware Vase</h4><div class="price">&pound;118</div></div>
+    <div class="catalog-item"><div class="thumb"><img src="https://picsum.photos/seed/chron-stool/300/300" alt="" loading="lazy"></div><h4>Walnut Stool</h4><div class="price">&pound;145</div></div>
+    <div class="catalog-item"><div class="thumb"><img src="https://picsum.photos/seed/chron-mirror/300/300" alt="" loading="lazy"></div><h4>Round Mirror</h4><div class="price">&pound;158</div></div>
+    <div class="catalog-item"><div class="thumb"><img src="https://picsum.photos/seed/chron-candle/300/300" alt="" loading="lazy"></div><h4>Concrete Candle</h4><div class="price">&pound;30</div></div>
+  </div>
+</div>
+
+<div class="section" id="workshop">
+  <div class="section-header"><span class="rule"></span><h3>From the Workshop</h3><span class="rule"></span></div>
+  <div class="two-col">
+    <div class="article"><div class="img"><img src="https://picsum.photos/seed/chron-wshop1/600/350" alt="" loading="lazy"></div><div class="cat">Joinery</div><h3>The Lost Art of the Dovetail Joint</h3><p>A master cabinetmaker demonstrates why a simple wooden joint, when cut by hand, can hold a piece together for centuries — and why machines cannot replicate it.</p></div>
+    <div class="article"><div class="img"><img src="https://picsum.photos/seed/chron-wshop2/600/350" alt="" loading="lazy"></div><div class="cat">Finishing</div><h3>Why Danish Oil Beats Varnish</h3><p>In praise of the oldest wood finish known to man — its virtues, its rituals, and the quiet satisfaction of watching grain emerge under the rag.</p></div>
+  </div>
+</div>
+
+<div class="section" id="design">
+  <div class="section-header"><span class="rule"></span><h3>Design & Culture</h3><span class="rule"></span></div>
+  <div class="three-col">
+    <div class="card"><div class="img"><img src="https://picsum.photos/seed/chron-design1/400/250" alt="" loading="lazy"></div><div class="cat">Architecture</div><h4>Brutalism's Quiet Heir</h4><p>How a new generation is softening concrete with wood, light, and silence.</p></div>
+    <div class="card"><div class="img"><img src="https://picsum.photos/seed/chron-design2/400/250" alt="" loading="lazy"></div><div class="cat">Typography</div><h4>The Return of Hot Metal</h4><p>A small Scottish press revives 19th-century letterpress techniques.</p></div>
+    <div class="card"><div class="img"><img src="https://picsum.photos/seed/chron-design3/400/250" alt="" loading="lazy"></div><div class="cat">Interiors</div><h4>The Room That Breathes</h4><p>On the forgotten virtue of empty space in a cluttered age.</p></div>
+  </div>
+</div>
+
+<div class="quote-block">
+  <div class="text">"The things we own should outlast us. That is the only form of thrift that matters."</div>
+  <div class="attr">— Johanna Berg, Cabinetmaker & Founder of Matter</div>
+</div>
+
+<div class="section" id="market">
+  <div class="section-header"><span class="rule"></span><h3>Market Report</h3><span class="rule"></span></div>
+  <div class="two-col">
+    <div class="article"><div class="img"><img src="https://picsum.photos/seed/chron-market1/600/350" alt="" loading="lazy"></div><div class="cat">Commodities</div><h3>Oak Prices Hold Steady as Demand for Hardwood Rises</h3><p>European oak remains the maker's choice, with prices stable at &pound;2,400 per cubic metre. Walnut sees a slight uptick due to increased demand from the furniture trade.</p></div>
+    <div class="article"><div class="img"><img src="https://picsum.photos/seed/chron-market2/600/350" alt="" loading="lazy"></div><div class="cat">Labour</div><h3>Apprenticeships in the Crafts See Resurgence</h3><p>Applications to furniture-making programmes have tripled since 2022. Young people, it seems, want to make things they can touch.</p></div>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <span>Matter Atelier · Cotswolds, England</span>
+  <span>Est. 1963</span>
+  <span>Enquiries: chronicle@matter.co.uk</span>
+</div>
+
+</div>
+
+<footer>
+  <div class="orn">&#9733; &nbsp; &#9733; &nbsp; &#9733;</div>
+  THE MATTER CHRONICLE · Printed on recycled stock · Set in Georgian Type
+  <div style="margin-top:6px;color:#a89888;font-style:italic">Published every Wednesday · Annual subscription &pound;14</div>
+</footer>
+
+</body>
+</html>

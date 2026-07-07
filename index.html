@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matter — Home</title>
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+<div class="top-bar">
+  <a href="index.html" class="logo">Matter<span>.</span></a>
+  <div class="nav"><a href="index.html" class="active">Home</a><a href="shop.html">Shop</a></div>
+  <a href="cart.html" class="cart-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    Cart <span class="badge" id="cartBadge">0</span>
+  </a>
+</div>
+
+<div class="pages">
+<div class="page active">
+
+<div class="hero">
+  <div class="text">
+    <h1>Design objects<br><span>for everyday life</span></h1>
+    <p>Curated pieces from independent makers — furniture, lighting, and objects made to last.</p>
+    <a href="shop.html" class="btn">Shop the Collection</a>
+  </div>
+  <div class="hero-img"><img src="https://picsum.photos/seed/matter-hero/800/900" alt="" loading="lazy"></div>
+</div>
+
+<div class="section">
+  <h2>Categories</h2>
+  <p class="sub">Every piece chosen for its quality, character, and craft.</p>
+  <div class="cat-grid">
+    <a href="shop.html?cat=furniture" class="cat-card"><img src="https://picsum.photos/seed/matter-cat-furniture/600/500" alt="" loading="lazy"><div class="overlay"></div><div class="label"><h3>Furniture</h3><p>Chairs, tables, storage</p></div></a>
+    <a href="shop.html?cat=lighting" class="cat-card"><img src="https://picsum.photos/seed/matter-cat-lighting/600/500" alt="" loading="lazy"><div class="overlay"></div><div class="label"><h3>Lighting</h3><p>Lamps, pendants, candles</p></div></a>
+    <a href="shop.html?cat=objects" class="cat-card"><img src="https://picsum.photos/seed/matter-cat-objects/600/500" alt="" loading="lazy"><div class="overlay"></div><div class="label"><h3>Objects</h3><p>Vases, prints, home</p></div></a>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Featured Products</h2>
+  <p class="sub">New arrivals and bestsellers from our collection.</p>
+  <div class="prod-grid" id="homeGrid"></div>
+</div>
+
+<div style="text-align:center;padding:40px 0">
+  <p style="color:#888;font-size:14px;margin-bottom:16px">Free shipping on orders over $200 · 30-day returns</p>
+  <a href="shop.html" class="btn btn-outline">View All Products</a>
+</div>
+
+</div></div>
+
+<footer>&copy; 2026 Matter. Design for living.</footer>
+
+<script src="shop-data.js"></script>
+<script>
+renderProductGrid('homeGrid', products.slice(0,4));
+updateBadge();
+</script>
+</body>
+</html>
